@@ -112,7 +112,7 @@ server <- function(input, output, session) {
   #  output$cookie_status <- renderText(as.character(input$cookies))
 
   # Simple server stuff goes here ------------------------------------------------------------
-  reactive_teache_data <- reactive({
+  reactive_teacher_data <- reactive({
     if(input$breakdown == 'gender') {
     teacher_data %>% filter(
       area_name == input$selectArea,
@@ -125,8 +125,8 @@ server <- function(input, output, session) {
   })
 
   # Define server logic required to draw a histogram
-  output$lineRevBal <- renderPlotly({
-    ggplotly(createAvgRevTimeSeries(reactiveRevBal(), input$selectArea)) %>%
+  output$lineTimeSeries <- renderPlotly({
+    ggplotly(createTimeSeries(reactive_teacher_data(), input$breakdown, input$headcount_fte)) %>%
       config(displayModeBar = F) %>%
       layout(legend = list(orientation = "h", x = 0, y = -0.2))
   })

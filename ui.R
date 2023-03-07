@@ -113,7 +113,7 @@ ui <- function(input, output, session) {
       "beta banner",
       "beta",
       paste0(
-        "This Dashboard is in beta phase and we are still reviewing performance and reliability. ",
+        "This Dashboard is in beta phase and we are still reviewing performance and reliability. "
       )
     ),
     shiny::navlistPanel(

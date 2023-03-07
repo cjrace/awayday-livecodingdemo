@@ -99,11 +99,10 @@ teacher_data <- teacher_data %>%
   mutate(headcount = round(headcount),
          full_time_equivalent = round(full_time_equivalent))
 # Get geographical levels from data
-dfAreas <- dfRevBal %>%
+dfAreas <- teacher_data %>%
   select(
     geographic_level, country_name, country_code,
-    region_name, region_code,
-    la_name, old_la_code, new_la_code
+    region_name, region_code
   ) %>%
   distinct()
 

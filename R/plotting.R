@@ -1,7 +1,8 @@
 createTimeSeries <- function(df, breakdown, metric) {
   ggplot(df, aes(
     x = time_period,
-    y = get(metric)
+    y = get(metric),
+    color = get(breakdown)
   )) +
     geom_line(size = 1.2) +
     theme_classic() +
@@ -13,8 +14,8 @@ createTimeSeries <- function(df, breakdown, metric) {
       legend.position = "top"
     ) +
     scale_y_continuous(
-      labels = scales::number_format(accuracy = 1, big = ",", prefix = "£")
+      labels = scales::number_format(accuracy = 1, big = ",")
     ) +
     xlab("Academic year") +
-    ylab(get(metric))
+    ylab('metric')
 }

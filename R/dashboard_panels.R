@@ -36,7 +36,7 @@ dashboard_panel <- function() {
               column(
                 width = 4,
                 radioGroupButtons(inputId = 'headcount_fte',
-                                  choices =list('headcount, full_time_equivalent'))
+                                  choices =list('headcount', 'full_time_equivalent'))
               ),
               column(
                 width = 12,

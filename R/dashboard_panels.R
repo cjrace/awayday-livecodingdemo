@@ -69,12 +69,12 @@ dashboard_panel <- function() {
               )
             ),
             tabPanel(
-              "Example panel 2",
+              "Table",
               fluidRow(
                 column(
                   width = 12,
-                  h2("Outputs 2 (h2)"),
-                  p("This is the standard paragraph style for adding guiding info around data content."),
+                  h2("Teacher table"),
+                  p("View teacher headount or FTE by characteristic and geographical area"),
                   column(
                     width = 12,
                     dataTableOutput("tabBenchmark")

@@ -144,7 +144,7 @@ dashboard_panel <- function() {
                   ),
                   box(
                     width = 12,
-                    plotlyOutput("lineRevBal")
+                    plotlyOutput("lineTimeSeries")
                   )
                 )
               )

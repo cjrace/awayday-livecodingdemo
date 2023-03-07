@@ -305,7 +305,7 @@ server <- function(input, output, session) {
 
   # Download the underlying data button
   output$download_data <- downloadHandler(
-    filename = "shiny_template_underlying_data.csv",
+    filename = "stats_awayday_demo.csv",
     content = function(file) {
       write.csv(dfRevBal, file)
     }

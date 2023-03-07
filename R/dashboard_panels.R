@@ -88,19 +88,24 @@ dashboard_panel <- function() {
             style = "min-height: 100%; height: 100%; overflow-y: visible",
             gov_row(
               column(
-                width = 6,
-                selectizeInput("selectPhase",
-                  "Select a school phase",
-                  choices = choicesPhase
+                width = 4,
+                selectizeInput("breakdown",
+                  "Select a breakdown",
+                  choices = c('gender', 'grade')
                 )
               ),
               column(
-                width = 6,
+                width = 4,
                 selectizeInput(
                   inputId = "selectArea",
                   label = "Choose an area:",
                   choices = choicesAreas$area_name
                 )
+              ),
+              column(
+                width = 4,
+                radioGroupButtons(inputId = 'headcount_fte',
+                                  choices =list('headcount, full_time_equivalent'))
               ),
               column(
                 width = 12,

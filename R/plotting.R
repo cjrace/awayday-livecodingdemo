@@ -16,5 +16,5 @@ createTimeSeries <- function(df, breakdown, metric) {
       labels = scales::number_format(accuracy = 1, big = ",", prefix = "£")
     ) +
     xlab("Academic year") +
-    ylab(get(metric)) +
+    ylab(get(metric)) 
 }

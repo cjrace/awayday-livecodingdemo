@@ -99,25 +99,15 @@ teacher_data <- teacher_data %>%
   mutate(headcount = round(headcount),
          full_time_equivalent = round(full_time_equivalent))
 # Get geographical levels from data
-dfAreas <- dfRevBal %>%
+dfAreas <- teacher_data %>%
   select(
     geographic_level, country_name, country_code,
-    region_name, region_code,
-    la_name, old_la_code, new_la_code
+    region_name, region_code, area_name
   ) %>%
   distinct()
-
-choicesLAs <- dfAreas %>%
-  filter(geographic_level == "Local authority") %>%
-  select(geographic_level, area_name = la_name) %>%
-  arrange(area_name)
 
 choicesAreas <- dfAreas %>%
   filter(geographic_level == "National") %>%
   select(geographic_level, area_name = country_name) %>%
-  rbind(dfAreas %>% filter(geographic_level == "Regional") %>% select(geographic_level, area_name = region_name)) %>%
-  rbind(choicesLAs)
+  rbind(dfAreas %>% filter(geographic_level == "Regional") %>% select(geographic_level, area_name = region_name))
 
-choicesYears <- unique(dfRevBal$time_period)
-
-choicesPhase <- unique(dfRevBal$school_phase)
